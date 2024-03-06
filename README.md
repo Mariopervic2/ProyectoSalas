@@ -5,3 +5,6 @@
 
 ## Asignatura
 Programación 
+
+## Esquema
+![](Esquema%20Relaciones.png)
