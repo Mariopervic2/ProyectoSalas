@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Salas {
+public class Sala{
     public String nombreS;
     public String codigoS;
     ArrayList <Reserva> reservas=new ArrayList<>();
@@ -9,8 +9,22 @@ public class Salas {
             reservas.get(i).mostrarReserva();
         }
     }
-    public Salas(String nombreS,String codigoS){
+    public String getCodigoS(){
+        return codigoS;
+    }
+    public Sala(String nombreS,String codigoS){
         this.nombreS=nombreS;
         this.codigoS=codigoS;
     }
+    public void agregarReserva(Reserva reserva) {
+        reservas.add(reserva);
+    }
+    public void anularReserva(Reserva reserva){
+        reservas.remove(reserva);
+    }
+
+
+
+}
+
 }
