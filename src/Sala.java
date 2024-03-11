@@ -1,35 +1,47 @@
 import java.util.ArrayList;
-public class Sala{
-    public String nombreS;
-    public String codigoS;
-    ArrayList <Reserva> reservas=new ArrayList<>();
+import java.util.List;
+public class Sala {
+    private String codigo;
+    private String nombre;
 
-    public void mostrarReservas(){
-        for(int i=0;i<reservas.size();i++){
-            reservas.get(i).mostrarReserva();
-        }
+    //Cada sala tendrá un array de reservas
+    private List<Reserva> reservas;
+
+    public Sala(String codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.reservas = new ArrayList<>(); // Inicializamos la lista de reservas
     }
 
-    public String getCodigoS(){
-        return codigoS;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public String getNombreS() {
-        return nombreS;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    //Añadimos la sala (RF 7)
-    public Sala(String nombreS,String codigoS){
-        this.nombreS=nombreS;
-        this.codigoS=codigoS;
+    public String getNombre() {
+        return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+    public Sala() {
+        this.reservas = new ArrayList<>();
+    }
+
+    // Método para obtener la lista de reservas de la sala
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    // Método para agregar una reserva a la sala
     public void agregarReserva(Reserva reserva) {
         reservas.add(reserva);
-    }
-
-    public void anularReserva(Reserva reserva){
-        reservas.remove(reserva);
     }
 
 

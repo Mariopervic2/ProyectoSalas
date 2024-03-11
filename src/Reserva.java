@@ -1,31 +1,47 @@
 import java.util.Date;
-import java.util.Locale;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
 
-public class Reserva{
-    LocalDateTime momentoReserva;
-    int duracion;
-    public String codigoS;
-    String codigoD;
+public class Reserva {
+    private Sala sala;
+    private Departamento departamento;
+    private Date fecha;
+    private int horaInicio;
+    private int duracionHoras;
 
-    DateTimeFormatter f1= DateTimeFormatter.ofPattern("yyyy'-'MM'-'dd'-'kk:mm");
-    DateTimeFormatter f2=DateTimeFormatter.ofPattern("kk:mm");
-
-    public Reserva(int año, int mes, int dia, int hora, int minuto, int segundo,int duracion,Sala sala,String codigoD){
-        LocalDateTime horaReserva=LocalDateTime.of(año,mes,dia,hora,minuto,segundo);
-        this.momentoReserva=horaReserva;
-        this.duracion=duracion;
-        this.codigoS=sala.getCodigoS();
-        sala.agregarReserva(this);
-        this.codigoD=codigoD;
+    //El constructor de reserva contiene una fecha,una hora de inicio(que es un número entero) y una duración(en horas enteras)
+    public Reserva(Date fecha, int horaInicio, int duracionHoras) {
+        this.fecha = fecha;
+        this.horaInicio = horaInicio;
+        this.duracionHoras = duracionHoras;
     }
 
-    public void mostrarReserva(){
-        System.out.println(codigoD+">"+codigoS+" :"+momentoReserva.format(f1)+">"+(momentoReserva.plusHours(duracion)).format(f2));
+
+    public Date getFecha() {
+        return fecha;
     }
-    public void getCodigoS(){
-        System.out.println(codigoS);
+
+    public int getHoraInicio() {
+        return horaInicio;
     }
+
+    public int getDuracionHoras() {
+        return duracionHoras;
+    }
+
+    public Sala getSala() {
+        return this.sala;
+    }
+
+    public Departamento getDepartamento() {
+        return this.departamento;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
 
 }
