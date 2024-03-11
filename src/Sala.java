@@ -9,22 +9,28 @@ public class Sala{
             reservas.get(i).mostrarReserva();
         }
     }
+
     public String getCodigoS(){
         return codigoS;
     }
+
+    public String getNombreS() {
+        return nombreS;
+    }
+
+    //Añadimos la sala (RF 7)
     public Sala(String nombreS,String codigoS){
         this.nombreS=nombreS;
         this.codigoS=codigoS;
     }
+
     public void agregarReserva(Reserva reserva) {
         reservas.add(reserva);
     }
+
     public void anularReserva(Reserva reserva){
         reservas.remove(reserva);
     }
 
-
-
-}
 
 }
